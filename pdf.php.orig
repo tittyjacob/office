@@ -1,0 +1,212 @@
+<?php
+require('fpdf.php');
+
+#$include 'config.inc.php';
+#$conn = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to mysql');
+#mysql_select_db($db_name);
+
+                                
+#$adno=$_POST['admno'];
+#$semest=array("3"=>"III","5"=>"V","7"=>"VII");
+#$qry="select * from registration where admno='$adno'"; 
+#$qry="select * from registration where admno='100/10'"; 
+#$st=mysql_query($qry) ;
+
+#if(mysql_num_rows($st)==0) { 
+
+ 
+# echo " <br>";
+# echo "<br>";
+# echo "<br>";
+# echo "<br>";
+# echo " <script>
+#       alert(\"You have not Applied for Semester Registration\") 
+#       window.location.assign(\"http://www.mec.ac.in/semreg-2016/index.html\")
+#       </script>";        
+       
+#  }
+                                                                                      
+#else {                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+                                                                                                              
+
+
+# $rs=mysql_fetch_row($st);
+
+# $nam=$rs[1];
+# $adn=$rs[2];
+# $roll=$rs[3];
+# $br=$rs[4];
+# $batch=$rs[5];
+# $sem=$rs[6];
+# $cat=$rs[7];
+# $crdate=$rs[8];
+# $crdts=$rs[9];
+# $hosteller=$rs[10];
+# $hosteldues=$rs[11];
+# $scst=$rs[12];
+# $presentad=$rs[13];
+# $phonepresent=$rs[14];
+# $permad=$rs[15];
+# $phoneparent=$rs[16];
+                     
+                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                     
+
+# $conn = mysql_close($conn);
+                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                    
+                                                                                                                
+
+
+
+
+
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',16);
+$pdf-> SetTitle("Model Engineering College - Semester Registration");
+$pdf->SetFont('Arial','',12);
+$pdf->Text(65,10,' Model Engineering College');
+$pdf->SetFont('Arial','',10);
+#$pdf->Text(75,15,'Cochin, Kerala, India, Pin: 682 021');
+#$pdf->SetFont('Arial','',10);
+#$pdf->Text(65,20,'Request for Transfer Certificate / Course & Conduct Certificate');
+###$pdf->Rect(10,10,35,10);
+$pdf->SetFont('Arial','U',10);
+$pdf->Text(65,20,'Request for Transfer Certificate / Course & Conduct Certificate');
+
+$pdf->SetFont('Arial','',9);
+$row=10;
+$i=45;
+$pdf->Text($row,$i,'1. Name of the Student ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50,$i,$nam);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'2. Admission No. ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50,$i,$adn);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row+100,$i,'Roll No. ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+100+25,$i,$roll);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'3. Branch ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50,$i,$br);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row+100,$i,'Batch ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50+75,$i,$batch);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'4. Semester to which registration is sought for ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+80,$i,$sem);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'5. Category ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50,$i,$cat);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'6. Total Credits earned as on date , ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+57,$i,$crdate);
+$pdf->Text($row+85,$i,$crdts);
+$pdf->SetFont('Arial','',10);
+
+
+$pdf->Text($row,$i+=9,'7. Hosteller ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50,$i,$hosteller);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text(120,$i,'If yes, dues cleared ? ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50+90,$i,$hosteldues);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'8. Whether Belongs to SC/ST/OEC ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+50+10,$i,$scst);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'9. Present Address ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+25,$i+5,$presentad);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row+45,$i+=10,' Phone ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+60,$i,$phonepresent);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=9,'10. Permanent Address ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+25,$i+5,$permad);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row+45,$i+=10,' Phone ');
+
+$pdf->SetFont('Arial','B',9);
+$pdf->Text($row+60,$i,$phoneparent);
+$pdf->SetFont('Arial','',10);
+
+$pdf->Text($row,$i+=12,'11. Signature of Student ');
+$pdf->Text(135,$i,'Date ');
+$pdf->SetFont('Arial','U',10);
+$pdf->Text(85,$i+=9,'Clearance of Dues');
+$pdf->SetFont('Arial','',10);
+$pdf->Text($row,$i+=9,'1. Library');
+$pdf->Text($row,$i+=9,'2. Hostel');
+$pdf->Text($row,$i+=9,'3. Accounts (A4 Section) ');
+$pdf->Text($row,$i+=9,'4. Fee Receipt No. & Date ');
+$pdf->Text(135,$i,'Rs. ');
+$pdf->SetFont('Arial','U',10);
+$pdf->Text(85,$i+=12,'For office use');
+$pdf->SetFont('Arial','',10);
+$pdf->Text(30,$i+=12,'Eligible for registration to .......................semester');
+
+$pdf->SetFont('Arial','B',10);
+
+$pdf->Text($row,$i+=15,'Signature of staff advisor ');
+$pdf->Text(130,$i,'Head of the Department ');
+
+$pdf->Text($row,$i+=10,'Date ');
+$pdf->Text(130,$i,'Date ');
+
+
+
+$pdf->Text(150,$i+=10,'PRINCIPAL ');
+
+
+
+
+$pdf->Output('semester-registration.pdf','D');
+
+
+#}
+
+?>

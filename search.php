@@ -15,10 +15,11 @@ if(mysql_num_rows($query)>=1){
         $name = $row['name'];
         $course = $row['course'];
         $branch = $row['branch'];
-#        $email = $row['email'];
-#        $mobile = $row['mobile'];
-#        $dob = $row['dob'];
-        
+        $sex = $row['sex'];
+        $nationality = $row['nationality'];
+        $dob = $row['religion'];
+        $dob = $row['dob'];
+        $dob = $row['reason'];        
     }
 ?>
 
@@ -26,7 +27,7 @@ if(mysql_num_rows($query)>=1){
 <div align="center"><b><u>Application for Transfer Certificate & Course and Conduct Certificate</u></b></div>
 <br>
 <br>
-<form action="update.php" method="post">
+<form action="pdf.php" method="post">
 
 <table width="700" border="0" align="center" bordercolor="#ffffff" bgcolor="#ffffee">
 <tr>
@@ -73,7 +74,7 @@ Reason for Leaving </td><td width="50%"> <input type="text" name="reason" value=
 <tr></tr>
 <tr></tr>
 <tr> <td>
-</td><td width="50%"> <input type="Submit"> 
+</td><td width="50%"> <input type="Submit" value="Print Application"> 
 </td> <tr>
 
 

@@ -1,6 +1,16 @@
 <?php
 require('fpdf.php');
 
+$name=$_POST['name'];
+$admno=$_POST['admno'];
+$course=$_POST['course'];
+$branch=$_POST['branch'];
+$sex=$_POST['sex'];
+$nationality=$_POST['nationality'];
+$religion=$_POST['religion'];
+$caste=$_POST['caste'];
+$dob=$_POST['dob'];
+$reason=$_POST['reason'];
 #$rownclude 'config.inc.php';
 #$conn = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to mysql');
 #mysql_select_db($db_name);
@@ -85,9 +95,9 @@ $row=40;
 $col=25;
 
 $pdf->Text($col,$row,'From ');
-$pdf->Text($col+5,$row+=5,'Student Name ');
-$pdf->Text($col+5,$row+=5,'Admission No., Course');
-$pdf->Text($col+5,$row+=5,'Branch');
+$pdf->Text($col+5,$row+=5,$name);
+$pdf->Text($col+5,$row+=5,$admno.', '.$branch);
+$pdf->Text($col+5,$row+=5,$course);
 
 $pdf->Text($col,$row+=10,'To');
 $pdf->Text($col+5,$row+=5,'The Principal ');
@@ -102,7 +112,7 @@ $pdf->Text($col,$row+=5,'My Personal details as per college records are given be
 $pdf->Text($col+20,$row+=10,'Name ');
 
 $pdf->SetFont('Arial','B',10);
-$pdf->Text($col+100,$row,$nam);
+$pdf->Text($col+100,$row,$name);
 $pdf->SetFont('Arial','',10);
 
 $pdf->Text($col+20,$row+=9,'Date of Birth ');
@@ -120,7 +130,7 @@ $pdf->SetFont('Arial','',10);
 $pdf->Text($col+20,$row+=9,'Nationality ');
 
 $pdf->SetFont('Arial','B',10);
-$pdf->Text($col+100,$row,$nation);
+$pdf->Text($col+100,$row,$nationality);
 $pdf->SetFont('Arial','',10);
 
 $pdf->Text($col+20,$row+=9,'Religion & Caste ');
@@ -152,10 +162,10 @@ $pdf->Text($col+100,$row,$branch);
 $pdf->SetFont('Arial','',10);
 $pdf->Text($col+20,$row+=9,'Reason for Leaving');
 
-$pdf->SetFont('Arial','',10);
+$pdf->SetFont('Arial','B',10);
 $pdf->Text($col+100,$row,$reason);
 
-
+$pdf->SetFont('Arial','',10);
 $pdf->Text($col,$row+=15,'Signature of Student  ');
 $pdf->Text($col+125,$row,'Date : ');
 
@@ -176,7 +186,7 @@ $pdf->Text($col+140,$row+=10,'PRINCIPAL');
 $pdf->SetFont('Arial','B',10);
 
 
-$pdf->Output('semester-registration.pdf','D');
+$pdf->Output('TC-Application-'.$name.'.pdf','D');
 
 
 #}
